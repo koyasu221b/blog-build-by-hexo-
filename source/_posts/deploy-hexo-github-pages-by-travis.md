@@ -9,7 +9,7 @@ I suggest [Travis CI](https://travis-ci.org) is simple to deploy and test for yo
 In this time, I will deploy my Hexo to githubpages with Travis.
 The first thing is to enable your git project with Travis.  
 ### Enable Travis with your Git project
-![travisci.png](/blog/img/travisci.png)
+![travisci.png](/img/travisci.png)
 
 ### Configure Travis to your Git Project
 ```
@@ -65,5 +65,5 @@ deploy:
 
 After you write a post, do a push to Github and you will find your blog is update.
 
-![travisci_output.png](/blog/img/travisci_output.png)
+![travisci_output.png](/img/travisci_output.png)
 
