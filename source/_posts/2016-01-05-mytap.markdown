@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Using MyTAP for mysql unittest"
+date: 2016-01-05 22:39:07 +0800
+comments: true
+categories: MySQL
+---
+[MyTAP](https://github.com/theory/mytap) is a good framework for MYSQL integration testing.  
+It can help you to test the MYSQL stored procedure and triggers.  
+Here're some example test.sql:
+
+```
+BEGIN;
+SELECT tap.plan(2);
+insert into user_info(uid, name) values("0123", "stone");
+-- Check the select value
+SELECT tap.eq(
+     uid,
+    "0123",
+    'check the uid on user_info table'
+) FROM user_info WHERE uid = "0123";
+
+SELECT tap.eq(
+     name,
+    "stone",
+    'check the name on user_info table'
+) FROM user_info WHERE uid = "0123";
+
+CALL tap.finish();
+ROLLBACK;
+```
+
+The following is the excution command.
+```
+mysql -u root --disable-pager --batch --raw --skip-column-names --unbuffered --database sco --execute 'source test.sql'
+```
+
+The tap.plan(2) means here're two unitests, and tap.eq() function can help us to check the value is equal or not.

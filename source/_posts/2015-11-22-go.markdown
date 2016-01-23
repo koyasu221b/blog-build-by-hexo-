@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Parsing command line in Go"
+date: 2015-11-22 10:33:01 +0800
+comments: true
+categories: GO
+---
+flag implements the command-line flag parsing.  
+We can bind the flag to a variable.  
+For example:
+
+```
+package main
+import (
+    "flag"
+    "fmt"
+)
+
+var myport int
+func main(){
+   flag.IntVar(&myport, "port", "default_val", "this is description")
+   flag.Parse()
+   fmt.Printf("Hi this is myflag %v\n", myflag)
+}
+```
+You can use the following command to pass the flag:  
+package_bin -port 4000  
