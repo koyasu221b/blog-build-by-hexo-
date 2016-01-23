@@ -1,5 +1,5 @@
 ---
-title: deploy hexo github pages by travis
+title: Deploy hexo github pages by travis
 date: 2016-01-23 14:37:21
 tags: Others
 ---
